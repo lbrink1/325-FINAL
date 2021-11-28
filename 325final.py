@@ -75,99 +75,130 @@ english = input("Enter English to translate to morse code: ")
 morsefromenglish = translate_english(english)   
 
 #Print translation to the user 
+print("") # space for asthetics 
+print("Translation is:")
 print(morsefromenglish)
 
 #####################################################
 
 
 ## GAME CODE : LOREN / SEBASTIAN
-difficulty = input("What level of difficulty would you like to play? Please enter easy or hard: ")
 
+#input("Want to try again? To continue, enter 'easy' or 'hard'. If you recieve a perfect score of 13/13 on 'easy' mode, type 'hard' to move on to a more difficult level. If you want to stop playing, type 'stop'.")
+#difficulty = input("What level of difficulty would you like to play? Please enter easy or hard: ")
 
-while difficulty == 'easy':
+def play(difficulty):
     
-    learningeasy= {"-.-- . ...":"yes",
-                   "-.. --- --.":"dog" ,
-                   "-.-. .- -":"cat",
-                   "... . .-":"sea",
-                   "..-. --- -..-":"fox",
-                   "- .-. . .":"tree",
-                    ".-. .- - .":"rate",
-                    "- .... .":"the",
-                    ".- -. -..":"and",
-                    "-. ---":"no",
-                    "-.- . -.--":"key",
-                    ".-- .... -.--":"why",
-                    "... ..- -.": "sun"
-                    }
+    while difficulty == 'easy':
+    
+        learningeasy= {"-.-- . ...":"yes",
+                       "-.. --- --.":"dog" ,
+                       "-.-. .- -":"cat",
+                       "... . .-":"sea",
+                       "..-. --- -..-":"fox",
+                       "- .-. . .":"tree",
+                       ".-. .- - .":"rate",
+                       "- .... .":"the",
+                       ".- -. -..":"and",
+                       "-. ---":"no",
+                       "-.- . -.--":"key",
+                       ".-- .... -.--":"why",
+                       "... ..- -.": "sun"
+                       }
 
-    easy = list(learningeasy.keys())
-    random.shuffle(easy) 
-    
-    correctanswers = 0
-    wronganswers = 0
-    
-    for keyword in easy:
-        rightwrong = "{}"
-        print(rightwrong.format(keyword))
-        answer= input("What is this in English? Enter in all lowercase: ")
-        print(" ")
+        easy = list(learningeasy.keys())
+        random.shuffle(easy) 
         
-        if answer == (learningeasy[keyword]):
-            print("Correct answer!")
-            correctanswers += 1
-        else: 
-            print("Wrong answer.")
-            wronganswers += 1
+        correctanswers = 0
+        wronganswers = 0
+        total = 13
+        
+        for keyword in easy:
+            rightwrong = "{}"
+            print(" ") #space for asthetics 
+            print(rightwrong.format(keyword))
+            answer= input("What is this in English? Enter in all lowercase: ")
+            print(" ")
+        
+            if answer == (learningeasy[keyword]):
+                print("") # space fro asthetics
+                print("Correct answer!")
+                correctanswers += 1
+            else: 
+                print("") # space for asthetics 
+                print("Wrong answer.")
+                wronganswers += 1
             
-    rightwrong = "Your score is {}/{}"
-
-    print(rightwrong.format(correctanswers,wronganswers))  
+            print("")
+            rightwrong = "Your score for the game is {}/{}"
+            
+            print(rightwrong.format(correctanswers,total))  
       
-    break
+        break
    
-else:
-    
-    learninghard = {"... -.-. .... --- --- .-..": "school", 
-                    ".--. .-. --- .--- . -.-. -":"project",
-                    "..-. .. ... ....":"fish", 
-                    "-- --- - .... . .-.": "mother", 
-                    "..-. .- - .... . .-.":"father",
-                    "..-. .. -. .- .-..":"final", 
-                    "... -.-. --- .-. .":"score",
-                    "- .. .-. . -..":"tired",
-                    "... .-.. . . .--.":"sleep",
-                    "--. .-. . . -.":"green",
-                    "... -.- .- - .":"skate",
-                    "-... .-. . .- -.-":"break",
-                    "... ..- -. -.. .- -.--":"sunday",
-                
-                 }
-
-hard = list(learninghard.keys())
-
-random.shuffle(hard) 
-    
-correct_answers = 0
-wrong_answers = 0
-    
-for keyword in hard:
-    right_wrong = "{}"
-    print(right_wrong.format(keyword))
-    answer= input("What is this in English? Enter in all lowercase: ")
+    else:
         
-    if answer == (learninghard[keyword]):
-        print("Correct answer!")
-        correct_answers += 1
-    else: 
-        print("Wrong answer.")
-        wrong_answers += 1
+        learninghard = {"... -.-. .... --- --- .-..": "school", 
+                        ".--. .-. --- .--- . -.-. -":"project",
+                        "..-. .. ... ....":"fish", 
+                        "-- --- - .... . .-.": "mother", 
+                        "..-. .- - .... . .-.":"father",
+                            "..-. .. -. .- .-..":"final", 
+                            "... -.-. --- .-. .":"score",
+                            "- .. .-. . -..":"tired",
+                            "... .-.. . . .--.":"sleep",
+                            "--. .-. . . -.":"green",
+                            "... -.- .- - .":"skate",
+                            "-... .-. . .- -.-":"break",
+                            "... ..- -. -.. .- -.--":"sunday",
+                            
+                            }
+        
+        hard = list(learninghard.keys())
+        
+        random.shuffle(hard) 
+    
+        correct_answers = 0
+        wrong_answers = 0
+        total_answers = 13
+    
+        for keyword in hard:
+            right_wrong = "{}"
+            print(" ") # space for asthetics 
+            print(right_wrong.format(keyword))
+            answer= input("What is this in English? Enter in all lowercase: ")
             
-    right_wrong = "Your score is {}/{}"
-    
-print(right_wrong.format(correct_answers,wrong_answers))  
-difficulty = input("Want to try again? To continue, enter 'easy' or 'hard'. If you recieve a perfect score of 13/13 on 'easy' mode, type 'hard' to move on to a more difficult level: ")
+            if answer == (learninghard[keyword]):
+                print(" ") # space for asthetics
+                print("Correct answer!")
+                correct_answers += 1
+            else: 
+                print(" ") # space for asthetics 
+                print("Wrong answer.")
+                wrong_answers += 1
+            
+                print("")
+                right_wrong = "Your score for the game is {}/{}"
 
+            print(right_wrong.format(correct_answers,total_answers))  
+
+#######################################################    
+# Loop in order to allow user to continue playing game or stop
+while True:
     
+    difficulty = input("Would you like to play? If you would like to play, what level of difficulty would you prefer? Please enter 'easy' or 'hard'. If you don't want to play, enter 'stop': ")
+
+    if difficulty == 'easy': 
+        play(difficulty)
+        
+    elif difficulty == 'hard':
+        play(difficulty)
+    elif difficulty == 'stop':
+        print("") 
+        print("Thank you for playing! Game over.")
+        break
+    else: 
+        print(
+            "Cannot understand answer. Please type 'easy','hard', or 'stop'.")
         
 ## GUI CODE: SEBASTIAN
